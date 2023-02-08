@@ -1,0 +1,55 @@
+# примеры API-запросов
+
+#artem1= 65cbd1c9737e07c9b39eb166840e574975c95d57
+#artem = cd6daf5fecbf649767f3e8c541e5b10ae10456a0
+#demo = 253d0c017f185f08226cf0003010b65113afa437
+#demo1 = f60c01d1101cba864eba983a517e8ed85528486a
+#11 = 42a89eb5b218e959db7ce9c14123d678f8c4a260
+
+
+@baseUrl = http://127.0.0.1:8000/api
+
+# получение объявлений
+GET {{baseUrl}}/advertisements/
+Content-Type: application/json
+
+###
+
+# создание объявления
+POST {{baseUrl}}/advertisements/
+Content-Type: application/json
+Authorization: Token 42a89eb5b218e959db7ce9c14123d678f8c4a260
+
+{
+  "title": "Demo",
+  "description": "dome"
+}
+
+###
+
+# попытка поменять объявление
+PATCH {{baseUrl}}/advertisements/63/
+Content-Type: application/json
+Authorization: Token f60c01d1101cba864eba983a517e8ed85528486a
+
+{
+  "status": "CLOSED"
+}
+
+###
+
+# фильтрация по создателю
+GET {{baseUrl}}/advertisements/?creator=4
+Content-Type: application/json
+
+###
+
+# фильтрация по дате
+GET {{baseUrl}}/advertisements/?created_at_after=2020-10-01
+Content-Type: application/json
+
+###
+
+DELETE {{baseUrl}}/advertisements/8/
+Content-Type: application/json
+Authorization: Token cd6daf5fecbf649767f3e8c541e5b10ae10456a0

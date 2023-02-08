@@ -1,0 +1,25 @@
+@base_url = http://localhost:8000/
+
+GET {{base_url}}adv/
+Authorization: Token 417ed9a77104e1580d45f523f1a551ee8797bda3
+
+###
+
+POST {{base_url}}adv/
+Content-Type: application/json
+Authorization: Token 417ed9a77104e1580d45f523f1a551ee8797bda3
+
+{
+    "text": "4444"
+}
+
+###
+
+DELETE {{base_url}}adv/2/
+Authorization: Token 069cdc6dcdcb3812b64d4ead22e6f1214c97ae7a
+Content-Type: application/json
+
+###
+
+GET {{base_url}}adv/2/
+Authorization: Token 069cdc6dcdcb3812b64d4ead22e6f1214c97ae7a
