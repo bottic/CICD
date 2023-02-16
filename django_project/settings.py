@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-=lk)iw5r+m2x=)w#bxj=emv0(7ui6qr_t2e^48e^n$sm7row&=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '89.108.64.134', '127.0.0.1']
 
 
 # Application definition
@@ -126,6 +126,7 @@ DATE_INPUT_FORMATS = ['%d-%m-%Y']
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -149,5 +150,4 @@ REST_FRAMEWORK = {
     ],
     'TEST_REQUEST_DEFAULT_FORMAT': 'json'
 }
-
 

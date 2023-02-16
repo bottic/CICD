@@ -1,0 +1,2 @@
+[run]
+omit=tests/*,.venv/*,manage.py,django_project/*,*tests.py,1000-7.py,main/migrations/*

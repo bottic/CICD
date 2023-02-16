@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from main.views import test_view, posts, post_details, hello, sum, pagi, create_car, list_car, create_person, \
-    list_person, list_orders, demo, CommentViewSet, AdvViewSet, MessageViewSet
+from main.views import test_view, posts, \
+    post_details, hello, sum, pagi, create_car, list_car, create_person, \
+    list_person, list_orders, demo, CommentViewSet, \
+    AdvViewSet, MessageViewSet
 from rest_framework.routers import DefaultRouter
 
 r = DefaultRouter()

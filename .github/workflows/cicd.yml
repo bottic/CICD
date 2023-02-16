@@ -1,0 +1,50 @@
+name: First CICD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  tests:
+    runs: ubuntu-20.04
+    env:
+      POSTGRES_DB: ${{ secrets.POSTGRES_DB }}
+      POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+      POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+
+      services:
+        postgres_main:
+          image: postgres:12
+          env:
+            POSTGRES_USER: ${{ env.POSTGRES_USER }}
+            POSTGRES_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+
+
+          ports:
+            - 5432:5432
+          options:
+            --health-cmd pg_isready
+            --health-interval 5s
+            --health-timeout 5s
+            --health-retries 5
+
+      steps:
+        - name: Проверка на изменения
+          uses: actions/checkout@v3
+          
+        - name: setup python
+          uses: actions/setup-python@v2
+          with:
+            python-version: 3.9
+        - name: setup pip
+          run: pip install -r req.txt
+
+        - name: Линтинг
+          run: flake8 django_project
+
+        - name: Тесты
+          run: python manage.py test
+          env:
+            DB_NAME: ${{ env.DB_NAME }}
+            DB_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
+            DB_USER: ${{ env.POSTGRES_USER }}

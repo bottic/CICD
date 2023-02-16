@@ -4,4 +4,6 @@ psycopg2-binary
 django-filter
 gunicorn
 python-dotenv
-
+flake8
+pytest
+model_bakery
