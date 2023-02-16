@@ -1,4 +1,4 @@
-name: First CICD
+name: Django testing
 
 on:
   push:
