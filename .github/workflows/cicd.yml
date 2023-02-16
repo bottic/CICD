@@ -31,17 +31,14 @@ jobs:
       steps:
         - name: Проверка на изменения
           uses: actions/checkout@v3
-          
         - name: setup python
           uses: actions/setup-python@v2
           with:
             python-version: 3.9
         - name: setup pip
           run: pip install -r req.txt
-
         - name: Линтинг
           run: flake8 django_project
-
         - name: Тесты
           run: python manage.py test
           env:
