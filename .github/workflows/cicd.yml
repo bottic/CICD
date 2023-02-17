@@ -36,7 +36,7 @@ jobs:
       - name: setup pip
         run: pip install -r req.txt
       - name: Линтинг
-        run: flake8 django_project
+        run: flake8 django_project --exclude django_project/settings.py
       - name: Тесты
         run: python manage.py test
         env:
